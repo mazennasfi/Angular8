@@ -1,0 +1,48 @@
+<div class="raw">
+    <div class="col-md-6 offset-md-3">
+        <div class="col-sm-12 text-center">
+            <div class="input-group mt-5">
+                <input class="form-control" type="text" #userInput placeholder="Enter the name of the city">
+                <div class="input-group-append">
+                    <button (click)="getWeatherCity(userInput.value)">Search</button>
+                </div>
+            </div>
+            <br>
+            <h5>The current weather in {{weather.name}} , {{weather.sys.country}}</h5>
+            <div class="col-sm-12">
+                <span class="temp">
+                    <h2>Temperature: {{weather.main.temp | number:'1.0-0'}} &#176;F</h2>
+                    <p class="text-uppercase font-italic font-weight-bold">Description:
+                        {{weather.weather[0].description}}</p>
+                </span>
+
+            </div>
+
+            <table class="table table-light table-striped table-bordered table-sm">
+                <tbody>
+
+                    <tr>
+                        <td>Humidity</td>
+                        <td>{{weather.main.humidity}}&deg;</td>
+                    </tr>
+                    <tr>
+                        <td>Pressure</td>
+                        <td>{{weather.main.pressure}}&deg;</td>
+                    </tr>
+                    <tr>
+                        <td>Time of Sunrise</td>
+                        <td>{{weather.sys.sunrise * 1000 | date:"h:mm"}}</td>
+                    </tr>
+                    <tr>
+                        <td>Time of Sunset</td>
+                        <td>{{weather.sys.sunset * 1000 | date:"h:mm"}}</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
